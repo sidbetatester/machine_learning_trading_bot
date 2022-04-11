@@ -87,6 +87,8 @@ Note:
     > Conclusions about the performance of the baseline trading algorithm
     
     - Baseline Training Window: 4 and 100
+    - The baseline trading algorithm performed pretty well through out the period. While it matched the actual returns very well from the beginning of the period until mid in 2018, it predicts higher than the actual performance towards the recent years. The precision and recall values show that the model is better at predicting 1 class than the -1 class for the baseline parameters.
+
                   precision    recall  f1-score   support
 
         -1.0       0.43      0.04      0.07      1804
@@ -96,16 +98,14 @@ Note:
     macro avg       0.49     0.50      0.39      4092
     weighted avg    0.50     0.55      0.43      4092
 
-   ![actual_returns_vs_strategy_returns_baseline](Images/actual_returns_vs_strategy_returns_baseline.jpg)
+![actual_returns_vs_strategy_returns_baseline](Images/actual_returns_vs_strategy_returns_baseline.jpg)
     
-    - The baseline trading algorithm performed pretty well through out the period. While it matched the actual returns very well from the beginning of the period until mid in 2018, it predicts higher than the actual performance towards the recent years. The precision and recall values show that the model is better at predicting 1 class than the -1 class for the baseline parameters.
-
-
 
 ### Tune the Baseline Trading Algorithm
     > What impact resulted from increasing or decreasing the training window?
-    
+
     - Decreasing the Training Window: 20 and 100
+    - While the plot shows there is very high match between the actual and the model, the precision and recall values show it only capable of predicting '1' class and not the '-1' class.
                   precision    recall  f1-score   support
 
         -1.0       0.00      0.00      0.00      1804
@@ -115,12 +115,11 @@ Note:
     macro avg      0.28      0.50      0.36      4092
     weighted avg   0.31      0.56      0.40      4092
 
+![actual_returns_vs_strategy_returns_decrease_window](Images/actual_returns_vs_strategy_returns_decrease_window.jpg)
+   
+    - Increasing the Training Window: 4 and 200
+    - From the plot, it is evident that as we increase the window, the model is behaving exactly opposite to the actual performance, this is the worst case and is also evident from the precision and recall values, the precision is better for '1' class and while recall is favoring '-1' class.
 
-![actual_returns_vs_strategy_returns_decrease_window](Images/actual_returns_vs_strategy_returns_decrease_window.PNG)
-    
-    - While the plot shows there is very high match between the actual and the model, the precision and recall values show it only capable of predicting '1' class and not the '-1' class.
-
-    Increasting the Training Window: 4 and 200
                  precision    recall  f1-score   support
 
         -1.0       0.44      0.85      0.58      1740
@@ -132,8 +131,7 @@ Note:
 
 ![actual_returns_vs_strategy_returns_increase_window](Images/actual_returns_vs_strategy_returns_increase_window.jpg)
     
-    - From the plot, it is evident that as we increase the window, the model is behaving exactly opposite to the actual performance, this is the worst case and is also evident from the precision and recall values, the precision is better for '1' class and while recall is favoring '-1' class.
-
+    
 
 ### Evaluate a New Machine Learning Classifier
     > Did this new model perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?
