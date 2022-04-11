@@ -82,38 +82,43 @@ Note:
 
 ## Evaluation Report
 
-# Establish a Baseline Performance
+### Establish a Baseline Performance
 
-    # Conclusions about the performance of the baseline trading algorithm
-    Baseline Training Window: 4 and 100
+    > Conclusions about the performance of the baseline trading algorithm
+    
+    - Baseline Training Window: 4 and 100
                   precision    recall  f1-score   support
 
         -1.0       0.43      0.04      0.07      1804
          1.0       0.56      0.96      0.71      2288
 
     accuracy                           0.55      4092
-   macro avg       0.49      0.50      0.39      4092
-weighted avg       0.50      0.55      0.43      4092
+    macro avg       0.49     0.50      0.39      4092
+    weighted avg    0.50     0.55      0.43      4092
 
    ![actual_returns_vs_strategy_returns_baseline](Images/actual_returns_vs_strategy_returns_baseline.jpg)
-    The baseline trading algorithm performed pretty well through out the period. While it matched the actual returns very well from the beginning of the period until mid in 2018, it predicts higher than the actual performance towards the recent years. The precision and recall values show that the model is better at predicting 1 class than the -1 class for the baseline parameters.
+    
+    - The baseline trading algorithm performed pretty well through out the period. While it matched the actual returns very well from the beginning of the period until mid in 2018, it predicts higher than the actual performance towards the recent years. The precision and recall values show that the model is better at predicting 1 class than the -1 class for the baseline parameters.
 
 
 
-# Tune the Baseline Trading Algorithm
-    # What impact resulted from increasing or decreasing the training window?
-    Decreasing the Training Window: 20 and 100
+### Tune the Baseline Trading Algorithm
+    > What impact resulted from increasing or decreasing the training window?
+    
+    - Decreasing the Training Window: 20 and 100
                   precision    recall  f1-score   support
 
         -1.0       0.00      0.00      0.00      1804
          1.0       0.56      1.00      0.72      2288
 
     accuracy                           0.56      4092
-   macro avg       0.28      0.50      0.36      4092
-weighted avg       0.31      0.56      0.40      4092
+    macro avg      0.28      0.50      0.36      4092
+    weighted avg   0.31      0.56      0.40      4092
 
-   ![actual_returns_vs_strategy_returns_decrease_window](Images/actual_returns_vs_strategy_returns_decrease_window.PNG)
-    # While the plot shows there is very high match between the actual and the model, the precision and recall values show it only capable of predicting '1' class and not the '-1' class.
+
+![actual_returns_vs_strategy_returns_decrease_window](Images/actual_returns_vs_strategy_returns_decrease_window.PNG)
+    
+    - While the plot shows there is very high match between the actual and the model, the precision and recall values show it only capable of predicting '1' class and not the '-1' class.
 
     Increasting the Training Window: 4 and 200
                  precision    recall  f1-score   support
@@ -122,15 +127,17 @@ weighted avg       0.31      0.56      0.40      4092
          1.0       0.58      0.16      0.25      2227
 
     accuracy                           0.47      3967
-   macro avg       0.51      0.51      0.42      3967
-weighted avg       0.52      0.47      0.40      3967
-   ![actual_returns_vs_strategy_returns_increase_window](Images/actual_returns_vs_strategy_returns_increase_window.jpg)
-    # From the plot, it is evident that as we increase the window, the model is behaving exactly opposite to the actual performance, this is the worst case and is also evident from the precision and recall values, the precision is better for '1' class and while recall is favoring '-1' class.
+    macro avg      0.51      0.51      0.42      3967
+    weighted avg   0.52      0.47      0.40      3967
+
+![actual_returns_vs_strategy_returns_increase_window](Images/actual_returns_vs_strategy_returns_increase_window.jpg)
+    
+    - From the plot, it is evident that as we increase the window, the model is behaving exactly opposite to the actual performance, this is the worst case and is also evident from the precision and recall values, the precision is better for '1' class and while recall is favoring '-1' class.
 
 
-# Evaluate a New Machine Learning Classifier
-    # Did this new model perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?
-    # LogisticRegression model has improved the prediction over the svc model. This is evident from all three senarios we have tested as shown below
+### Evaluate a New Machine Learning Classifier
+    > Did this new model perform better or worse than the provided baseline model? Did this new model perform better or worse than your tuned trading algorithm?
+    - LogisticRegression model has improved the prediction over the svc model. This is evident from all three senarios we have tested as shown below
     
     Base Parameters:
                  precision    recall  f1-score   support
@@ -139,9 +146,10 @@ weighted avg       0.52      0.47      0.40      3967
          1.0       0.56      0.66      0.61      2288
 
     accuracy                           0.52      4092
-   macro avg       0.50      0.50      0.49      4092
-weighted avg       0.51      0.52      0.51      4092
-   ![actual_returns_vs_strategy_returns_new_model](Images/actual_returns_vs_strategy_returns_new_model.jpg)
+    macro avg      0.50      0.50      0.49      4092
+    weighted avg   0.51      0.52      0.51      4092
+
+![actual_returns_vs_strategy_returns_new_model](Images/actual_returns_vs_strategy_returns_new_model.jpg)
     
     Decreasing the Training Window: 20 and 100
                  precision    recall  f1-score   support
@@ -150,9 +158,10 @@ weighted avg       0.51      0.52      0.51      4092
          1.0       0.56      0.73      0.63      2288
 
     accuracy                           0.53      4092
-   macro avg       0.50      0.50      0.48      4092
-weighted avg       0.51      0.53      0.50      4092
-   ![actual_returns_vs_strategy_returns_new_model_decreased_window](Images/actual_returns_vs_strategy_returns_new_model_decreased_window.jpg)
+    macro avg      0.50      0.50      0.48      4092
+    weighted avg   0.51      0.53      0.50      4092
+
+![actual_returns_vs_strategy_returns_new_model_decreased_window](Images/actual_returns_vs_strategy_returns_new_model_decreased_window.jpg)
 
 
     Increasting the Training Window: 4 and 200
@@ -162,9 +171,10 @@ weighted avg       0.51      0.53      0.50      4092
          1.0       0.57      0.57      0.57      2227
 
     accuracy                           0.52      3967
-   macro avg       0.51      0.51      0.51      3967
-weighted avg       0.52      0.52      0.52      3967
-   ![actual_returns_vs_strategy_returns_new_model_increased_window](Images/actual_returns_vs_strategy_returns_new_model_increased_window.jpg)
+    macro avg      0.51      0.51      0.51      3967
+    weighted avg   0.52      0.52      0.52      3967
+
+![actual_returns_vs_strategy_returns_new_model_increased_window](Images/actual_returns_vs_strategy_returns_new_model_increased_window.jpg)
 
 
 ---
